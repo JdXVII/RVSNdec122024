@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --body-color: #a9bdb7;
+    --sidebar-color: #4B5966;
+    --primary-color: #FFF;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #FFF;
+    --border-color: #e6e5e5;
+    --text-color: #F6F5FF;
+    --text2-color: #4B5966;
+    --box1-color: #f2f2f2;
+    --box2-color: #f2f2f2;
+    --box3-color: #f2f2f2;
+
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+    --tran-03: all 0.2s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection{
+    background-color: #4B5966;
+    color: #fff;
+}
+
+/* ===== Sidebar ===== */
+ .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;  
+}
+.sidebar.close{
+    width: 88px;
+}
+
+/* =========================== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: #F6F5FF;
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 45px;
+    border-radius: 40%;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+
+.sidebar .menu-bar{
+    height: calc(95% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+/* ==== Dashboard ==== */
+
+.dashboard{
+    position: relative;
+    left: 250px;
+    background-color: var(--panel-color);
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 10px 10px;
+    transition: var(--tran-05);
+}
+.dashboard .top{
+    position: absolute;
+    top: 0;
+    left: 92%;
+    display: flex;
+    cursor: pointer;
+    padding: 25px 14px;
+    background-color: var(--panel-color);
+    transition: var(--tran-05);
+    z-index: 10;
+}
+nav.close ~ .dashboard .top{
+    left: 92%;
+}
+.top img{
+    width: 40px;
+    border-radius: 50%;
+}
+nav.close ~ .dashboard{
+    left: 100px;
+    width: calc(100% - 100px);
+}
+.dash-content .title{
+    display: flex;
+    align-items: center;
+    margin: 60px 0 30px 0;
+}
+.dash-content .title i{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--title-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.dash-content .title .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+.dash-content .boxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.dash-content .boxes .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    width: calc(100% / 4 - 15px);
+    padding: 50px 20px;
+    background-color: var(--box1-color);
+    transition: var(--tran-05);
+}
+.boxes .box i{
+    font-size: 50px;
+    color: var(--text2-color);
+}
+.boxes .box .text{
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text2-color);
+}
+.boxes .box .number{
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--text2-color);
+}
+.boxes .box.box2{
+    background-color: var(--box2-color);
+}
+.boxes .box.box3{
+    background-color: var(--box3-color);
+}
+
+.boxes .box.box4{
+    background-color: var(--box3-color);
+}
+
+.top-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.top-container th, .top-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.top-container th {
+    background-color: #f4f4f4;
+}
+
+@media (max-width: 768px) {
+    .report-container table {
+        font-size: 14px;
+    }
+}
+
+
+/* Flexbox Layout for Boxes */
+.dash-content .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* top table */
+.date-filter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center; 
+    justify-content: flex-start;
+}
+
+/* General container styling */
+.date-filter div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label styling */
+.date-filter label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input and select styling */
+.date-filter input,
+.date-filter select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 250px;
+}
+
+/* Button styling */
+.date-filter button {
+    padding: 10px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.date-filter button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .date-filter {
+        justify-content: center;
+    }
+
+    .date-filter div {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .date-filter button {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .date-filter {
+        gap: 10px;
+    }
+
+    .date-filter label {
+        font-size: 12px;
+    }
+
+    .date-filter input,
+    .date-filter select,
+    .date-filter button {
+        font-size: 12px;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #f2f2f2;
+    color: #fff;
+}
+
+table th, table td {
+    padding: 16px;
+    text-align: left;
+    text-align: center;
+    font-size: 16px;
+    background-color: #FFF;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease-in-out;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Mobile Friendly */
+@media screen and (max-width: 480px) {
+    .title span {
+        font-size: 20px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Additional Styling */
+table td {
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+    color: #555;
+}
+
+.top-generation {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Grid Layout for Smaller Screens */
+@media (max-width: 400px) {
+    .dash-content .boxes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    nav ~ .dashboard{
+        left: 25%;
+        width: calc(80% - 50px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 120px);
+    }
+    .activity .activity-data{
+        overflow-X: scroll;
+    }
+}
+
+@media (max-width: 780px) {
+    nav ~ .dashboard{
+        left: 35%;
+        width: calc(70% - 50px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 100px);
+    }
+    .dash-content .boxes .box{
+        width: calc(100% / 2 - 15px);
+        margin-top: 15px;
+    }
+}
+@media (max-width: 560px) {
+    nav ~ .dashboard{
+        left: 45%;
+        width: calc(60% - 30px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 100px);
+    }
+    nav ~ .dashboard .top{
+        left: 85%;
+    }
+    nav.close ~ .dashboard .top{
+        left: 85%;
+    }
+    .dash-content .boxes .box{
+        width: 100% ;
+    }
+}
+@media (max-width: 400px) {
+    nav ~ .dashboard{
+        left: 0;
+        width: 100%;
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(90% - 63px);
+    }
+}

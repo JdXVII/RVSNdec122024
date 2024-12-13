@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --body-color: #a9bdb7;
+    --sidebar-color: #4B5966;
+    --primary-color: #FFF;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #FFF;
+    --border-color: #e6e5e5;
+    --text-color: #F6F5FF;
+    --box1-color: #f2f2f2;
+    --box2-color: #f2f2f2;
+    --box3-color: #f2f2f2;
+
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection{
+    background-color: #4B5966;
+    color: #fff;
+}
+
+/* ===== Sidebar ===== */
+ .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;  
+}
+.sidebar.close{
+    width: 88px;
+}
+
+/* =========================== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: #F6F5FF;
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 45px;
+    border-radius: 40%;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+
+.sidebar .menu-bar{
+    height: calc(95% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+/* ==== Dashboard ==== */
+
+.dashboard{
+    position: relative;
+    left: 250px;
+    background-color: var(--panel-color);
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 10px 10px;
+    transition: var(--tran-05);
+}
+.dashboard .top{
+    position: absolute;
+    top: 0;
+    left: 92%;
+    display: flex;
+    cursor: pointer;
+    padding: 25px 14px;
+    background-color: var(--panel-color);
+    transition: var(--tran-05);
+    z-index: 10;
+}
+nav.close ~ .dashboard .top{
+    left: 92%;
+}
+.top img{
+    width: 40px;
+    border-radius: 50%;
+}
+nav.close ~ .dashboard{
+    left: 100px;
+    width: calc(100% - 100px);
+}
+.dash-content .title{
+    display: flex;
+    align-items: center;
+    margin: 60px 0 30px 0;
+}
+.dash-content .title i{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--title-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.dash-content .title .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+/* ==== add event ==== */
+.event-creation, .event-view {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* General Layout for the Form */
+.event-creation {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Form rows to create columns */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* Form groups to control individual elements */
+.form-group {
+    flex: 1;
+    min-width: 250px; 
+}
+
+/* Styling for input fields, textarea, and select elements */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Styling for image preview container */
+.image-preview-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    margin-top: 10px;
+}
+
+.update-btn, .cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn {
+    background-color: #d52424de;
+}
+
+.update-btn i, .cancel-btn i {
+    margin-right: 8px;
+}
+
+.update-btn:hover, .cancel-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.event-view .event-card {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.event-view .event-card img {
+    max-width: 100px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.event-view .event-details {
+    margin-top: 10px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Event View Section */
+.event-list {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.event-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+}
+
+.event-card .event-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.event-card .event-icons i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.event-card .event-icons i:hover {
+    color: #0056b3;
+}
+
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.event-card .event-details {
+    margin-top: 10px;
+}
+
+.event-details strong {
+    font-weight: bold;
+}
+
+.event-card .event-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.event-images img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .event-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .preview-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-list {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-image {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    nav ~ .dashboard{
+        left: 25%;
+        width: calc(80% - 50px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 120px);
+    }
+}
+
+@media (max-width: 780px) {
+    nav ~ .dashboard{
+        left: 35%;
+        width: calc(70% - 50px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 100px);
+    }
+}
+@media (max-width: 560px) {
+    nav ~ .dashboard{
+        left: 45%;
+        width: calc(60% - 30px);
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(100% - 100px);
+    }
+    nav ~ .dashboard .top{
+        left: 85%;
+    }
+    nav.close ~ .dashboard .top{
+        left: 85%;
+    }
+}
+@media (max-width: 400px) {
+    nav ~ .dashboard{
+        left: 0;
+        width: 100%;
+    }
+    nav.close ~ .dashboard{
+        left: 100px;
+        width: calc(90% - 63px);
+    }
+}
